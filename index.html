@@ -1,11 +1,16 @@
-<!DOCTYPE html><html lang="en"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="x-poe-datastore-behavior" content="local_only">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
 <meta charset="UTF-8">
 <title>Lions Gate Secure Credential Portal</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=IBM+Plex+Mono:wght@400;600&amp;family=Manrope:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
@@ -56,7 +61,6 @@ body {
 
 .hidden { display: none !important; }
 
-/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -131,7 +135,6 @@ hr {
   margin: 28px 0;
 }
 
-/* LOGIN SCREEN */
 #login {
   height: 100vh;
   display: flex;
@@ -276,7 +279,6 @@ input::placeholder {
   font-size: 14px;
 }
 
-/* HEADER */
 .header {
   display: flex;
   justify-content: space-between;
@@ -309,7 +311,6 @@ input::placeholder {
   color: var(--gold);
 }
 
-/* PROFILE */
 .profile-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -343,7 +344,6 @@ input::placeholder {
   font-weight: 600;
 }
 
-/* STATUS BADGES */
 .status {
   padding: 8px 16px;
   border-radius: 999px;
@@ -370,7 +370,6 @@ input::placeholder {
   border: 1px solid rgba(74, 222, 128, 0.3);
 }
 
-/* CREDENTIAL BADGES */
 .badge-wrap {
   display: flex;
   gap: 30px;
@@ -410,7 +409,6 @@ input::placeholder {
   z-index: 2;
 }
 
-/* Holographic strip */
 .holo {
   position: absolute;
   top: 0;
@@ -424,7 +422,6 @@ input::placeholder {
   animation: holo 3s linear infinite;
 }
 
-/* Scanline effect */
 .badge::after {
   content: '';
   position: absolute;
@@ -436,7 +433,6 @@ input::placeholder {
   pointer-events: none;
 }
 
-/* Holographic overlay */
 .holo-overlay {
   position: absolute;
   top: 0;
@@ -555,7 +551,6 @@ input::placeholder {
   height: 100%;
 }
 
-/* Badge Back */
 .badge.back {
   animation-delay: -3s;
 }
@@ -613,7 +608,6 @@ input::placeholder {
   letter-spacing: 2px;
 }
 
-/* DOCUMENTS */
 .doc-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -667,7 +661,6 @@ input::placeholder {
   color: var(--text-muted);
 }
 
-/* SPECS */
 .specs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -700,7 +693,6 @@ input::placeholder {
   font-size: 13px;
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   margin-top: 50px;
@@ -718,7 +710,6 @@ footer .logo-text {
   margin-bottom: 8px;
 }
 
-/* Modal */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -757,7 +748,6 @@ footer .logo-text {
   margin-bottom: 24px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .container { padding: 24px 16px; }
   .card { padding: 24px 20px; }
@@ -765,6 +755,937 @@ footer .logo-text {
   .badge { width: 100%; }
   .header { flex-direction: column; }
   .header-actions { width: 100%; justify-content: flex-end; }
+}
+
+/* TGX Namespace - Modal Styles */
+.tgx-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tgx-modal-overlay.tgx-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tgx-modal {
+  background: var(--gray);
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  padding: 36px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(201, 162, 77, 0.15);
+}
+
+.tgx-modal-overlay.tgx-visible .tgx-modal {
+  transform: scale(1) translateY(0);
+}
+
+.tgx-modal-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #000;
+  box-shadow: 0 8px 32px rgba(201, 162, 77, 0.4);
+}
+
+.tgx-modal-icon.tgx-success {
+  background: linear-gradient(135deg, var(--success), #22c55e);
+}
+
+.tgx-modal h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  color: var(--gold);
+}
+
+.tgx-modal p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.tgx-input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.tgx-input-group i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.tgx-input {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: var(--black);
+  color: var(--text);
+  font-size: 16px;
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tgx-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(201, 162, 77, 0.2);
+}
+
+.tgx-input.tgx-error {
+  border-color: var(--error);
+  animation: tgx-shake 0.4s ease;
+}
+
+@keyframes tgx-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.tgx-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: "Manrope", sans-serif;
+  text-transform: uppercase;
+}
+
+.tgx-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 162, 77, 0.5);
+}
+
+.tgx-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.tgx-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tgx-btn-secondary {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+.tgx-btn-secondary:hover:not(:disabled) {
+  border-color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: none;
+  transform: none;
+}
+
+.tgx-error-msg {
+  color: var(--error);
+  font-size: 13px;
+  margin-top: -12px;
+  margin-bottom: 16px;
+  display: none;
+}
+
+.tgx-error-msg.tgx-visible {
+  display: block;
+}
+
+.tgx-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.light .tgx-checkbox-group {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.tgx-checkbox {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  accent-color: var(--gold);
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.tgx-checkbox-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.tgx-checkbox-label strong {
+  color: var(--text);
+}
+
+.tgx-progress-container {
+  margin: 24px 0;
+}
+
+.tgx-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.tgx-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 10px;
+  transition: width 0.1s linear;
+  position: relative;
+}
+
+.tgx-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  animation: tgx-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes tgx-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.tgx-progress-text {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+  color: var(--gold);
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.tgx-progress-status {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.tgx-admin-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tgx-admin-overlay.tgx-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tgx-admin-panel {
+  background: linear-gradient(180deg, #1a1a22, #0d0d10);
+  border: 2px solid #ff3366;
+  border-radius: 20px;
+  padding: 36px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 60px rgba(255, 51, 102, 0.2);
+}
+
+.tgx-admin-overlay.tgx-visible .tgx-admin-panel {
+  transform: scale(1);
+}
+
+.tgx-admin-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 51, 102, 0.3);
+}
+
+.tgx-admin-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #ff3366, #cc0044);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+}
+
+.tgx-admin-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: #ff3366;
+}
+
+.tgx-admin-subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tgx-admin-status {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+
+.tgx-admin-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+
+.tgx-admin-status-label {
+  color: var(--text-muted);
+}
+
+.tgx-admin-status-value {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+}
+
+.tgx-admin-status-value.tgx-active {
+  color: var(--success);
+}
+
+.tgx-admin-status-value.tgx-inactive {
+  color: var(--error);
+}
+
+.tgx-admin-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tgx-admin-btn {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: "Manrope", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tgx-admin-btn-activate {
+  background: linear-gradient(135deg, var(--success), #22c55e);
+  border: none;
+  color: #000;
+}
+
+.tgx-admin-btn-activate:hover {
+  box-shadow: 0 6px 24px rgba(74, 222, 128, 0.4);
+  transform: translateY(-1px);
+}
+
+.tgx-admin-btn-deactivate {
+  background: linear-gradient(135deg, var(--error), #ef4444);
+  border: none;
+  color: #fff;
+}
+
+.tgx-admin-btn-deactivate:hover {
+  box-shadow: 0 6px 24px rgba(255, 107, 107, 0.4);
+  transform: translateY(-1px);
+}
+
+.tgx-admin-btn-close {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.tgx-admin-btn-close:hover {
+  border-color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tgx-admin-password {
+  margin-bottom: 20px;
+}
+
+.tgx-admin-password .tgx-input {
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Admin Logs Section */
+.tgx-admin-logs {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 51, 102, 0.3);
+}
+
+.tgx-admin-logs h4 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #ff3366;
+  margin-bottom: 12px;
+}
+
+.tgx-logs-container {
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.tgx-log-item {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tgx-log-item:last-child {
+  border-bottom: none;
+}
+
+.tgx-log-time {
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.tgx-log-type {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tgx-log-type.voice {
+  background: rgba(147, 51, 234, 0.3);
+  color: #a855f7;
+}
+
+.tgx-log-type.text {
+  background: rgba(59, 130, 246, 0.3);
+  color: #3b82f6;
+}
+
+.tgx-log-type.system {
+  background: rgba(234, 179, 8, 0.3);
+  color: #eab308;
+}
+
+.tgx-log-msg {
+  color: var(--text-muted);
+  flex: 1;
+  word-break: break-word;
+}
+
+/* 3D Assistant Button */
+#assistantContainer {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  z-index: 9000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#assistantContainer:hover {
+  transform: scale(1.1);
+}
+
+#assistantCanvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.assistant-pulse {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 77, 0.4) 0%, transparent 70%);
+  animation: assistantPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes assistantPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 0.3; }
+}
+
+.assistant-tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background: var(--gray);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+#assistantContainer:hover .assistant-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Chat Modal */
+.chat-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.chat-modal-overlay.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.chat-modal {
+  background: var(--gray);
+  border: 1px solid var(--gold);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7), 0 0 50px rgba(201, 162, 77, 0.2);
+}
+
+.chat-modal-overlay.visible .chat-modal {
+  transform: scale(1) translateY(0);
+}
+
+.chat-header {
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(201, 162, 77, 0.15), transparent);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.chat-avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #000;
+}
+
+.chat-avatar.speaking {
+  animation: speakingPulse 0.5s ease-in-out infinite;
+}
+
+@keyframes speakingPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 77, 0.5); }
+  50% { box-shadow: 0 0 0 10px rgba(201, 162, 77, 0); }
+}
+
+.chat-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+
+.chat-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.chat-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.chat-close:hover {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 300px;
+  max-height: 400px;
+}
+
+.chat-message {
+  display: flex;
+  gap: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+.chat-message.user {
+  flex-direction: row-reverse;
+}
+
+.msg-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.chat-message.assistant .msg-avatar {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #000;
+}
+
+.chat-message.user .msg-avatar {
+  background: var(--gray-light);
+  color: var(--text);
+}
+
+.msg-bubble {
+  max-width: 80%;
+  padding: 14px 18px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.chat-message.assistant .msg-bubble {
+  background: rgba(201, 162, 77, 0.1);
+  border: 1px solid rgba(201, 162, 77, 0.2);
+  border-top-left-radius: 4px;
+}
+
+.chat-message.user .msg-bubble {
+  background: var(--gray-light);
+  border: 1px solid var(--line);
+  border-top-right-radius: 4px;
+}
+
+.msg-bubble.typing {
+  display: flex;
+  gap: 6px;
+  padding: 18px 22px;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: typingBounce 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-8px); }
+}
+
+.chat-input-area {
+  padding: 20px;
+  border-top: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.input-mode-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.mode-btn.active {
+  border-color: var(--gold);
+  background: rgba(201, 162, 77, 0.15);
+  color: var(--gold);
+}
+
+.mode-btn:hover:not(.active) {
+  border-color: var(--text-muted);
+}
+
+.chat-input-wrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--black);
+  color: var(--text);
+  font-size: 15px;
+  font-family: "Manrope", sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.chat-input::placeholder {
+  color: var(--text-muted);
+}
+
+.voice-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.voice-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(201, 162, 77, 0.4);
+}
+
+.voice-btn.recording {
+  background: linear-gradient(135deg, var(--error), #ef4444);
+  animation: recordPulse 1s ease-in-out infinite;
+}
+
+@keyframes recordPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.5); }
+  50% { box-shadow: 0 0 0 15px rgba(255, 107, 107, 0); }
+}
+
+.send-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #000;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(201, 162, 77, 0.4);
+}
+
+.send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.voice-status {
+  text-align: center;
+  padding: 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.voice-status i {
+  color: var(--gold);
+  margin-right: 8px;
+}
+
+.voice-status.recording {
+  color: var(--error);
+}
+
+.voice-status.recording i {
+  color: var(--error);
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@media (max-width: 480px) {
+  .tgx-modal, .tgx-admin-panel {
+    padding: 24px 20px;
+  }
+
+  .tgx-modal h3 {
+    font-size: 1.4rem;
+  }
+
+  .tgx-modal-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  #assistantContainer {
+    width: 65px;
+    height: 65px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .chat-modal {
+    max-height: 95vh;
+    border-radius: 20px;
+  }
+
+  .chat-messages {
+    min-height: 250px;
+  }
 }
 </style>
 </head>
@@ -825,7 +1746,7 @@ footer .logo-text {
         </div>
         <div class="profile-item">
           <label>Membership Tier</label>
-          <span style="color: var(--gold)">Elite Member (Provisional)</span>
+          <span style="color: var(--gold)" id="tgxMembershipTier">Elite Member (Provisional)</span>
         </div>
         <div class="profile-item">
           <label>Tag ID</label>
@@ -839,11 +1760,17 @@ footer .logo-text {
         </div>
       </div>
       <hr>
-      <small>
+      <small id="tgxPendingNotice">
         <i class="fas fa-info-circle"></i>
         Access must be completed on or before <strong>16th</strong>.
         Physical credentials will be processed on <strong>17th</strong>.
       </small>
+      <div id="tgxActiveInfo" class="hidden">
+        <small style="color: var(--success);">
+          <i class="fas fa-check-circle"></i>
+          <strong>Credential Activated.</strong> Your account is fully active. Physical credentials and membership materials are scheduled for dispatch.
+        </small>
+      </div>
     </div>
 
     <hr>
@@ -890,7 +1817,7 @@ footer .logo-text {
             </div>
             <div>
               <div class="barcode" id="barcode"></div>
-              <div class="badge-serial">LG-2603-ELITE-2024-PROV</div>
+              <div class="badge-serial" id="tgxBadgeSerial">LG-2603-ELITE-2024-PROV</div>
             </div>
           </div>
         </div>
@@ -926,11 +1853,17 @@ footer .logo-text {
         </div>
       </div>
       <hr>
-      <small>
+      <small id="tgxShipmentPending">
         <i class="fas fa-truck"></i>
         Physical tag, Lions Gate membership ID card and branded materials
         will be dispatched via FedEx or DHL upon completion.
       </small>
+      <div id="tgxShipmentActive" class="hidden">
+        <small style="color: var(--success);">
+          <i class="fas fa-truck"></i>
+          <strong>Shipment Confirmed.</strong> Physical tag, Lions Gate Elite membership ID card, and branded materials will be dispatched within 3-5 business days via priority courier (FedEx/DHL).
+        </small>
+      </div>
     </div>
 
     <hr>
@@ -967,7 +1900,7 @@ footer .logo-text {
     </div>
 
     <footer>
-      <div class="logo-text">LIONS GATE CORPORATION</div>
+      <div class="logo-text" id="tgxFooterLogo">LIONS GATE CORPORATION</div>
       Secure Credential Infrastructure<br>
       System generated · No signature required
     </footer>
@@ -981,6 +1914,201 @@ footer .logo-text {
     <h3>Download Ready</h3>
     <p id="modalText">Your document is being downloaded.</p>
     <button class="btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<!-- TGX Activation Code Modal -->
+<div id="tgxActivationModal" class="tgx-modal-overlay">
+  <div class="tgx-modal">
+    <div class="tgx-modal-icon">
+      <i class="fas fa-key"></i>
+    </div>
+    <h3>Tag Access Activation</h3>
+    <p>Enter your TGX activation code to complete credential registration and activate your Elite membership access.</p>
+    <div class="tgx-input-group">
+      <i class="fas fa-lock"></i>
+      <input type="text" id="tgxCodeInput" class="tgx-input" placeholder="ENTER CODE" maxlength="6" autocomplete="off">
+    </div>
+    <div id="tgxCodeError" class="tgx-error-msg">Invalid activation code. Please verify and try again.</div>
+    <button class="tgx-btn" id="tgxSubmitCode">
+      <i class="fas fa-shield-check"></i> Verify Activation Code
+    </button>
+    <button class="tgx-btn tgx-btn-secondary" id="tgxCancelActivation">Cancel</button>
+  </div>
+</div>
+
+<!-- TGX Confirmation Modal -->
+<div id="tgxConfirmModal" class="tgx-modal-overlay">
+  <div class="tgx-modal">
+    <div class="tgx-modal-icon">
+      <i class="fas fa-file-contract"></i>
+    </div>
+    <h3>Confirm Activation</h3>
+    <p>Review and accept the terms below to finalize your credential activation. This action is permanent and cannot be reversed.</p>
+    <div class="tgx-checkbox-group">
+      <input type="checkbox" id="tgxTermsCheck" class="tgx-checkbox">
+      <label for="tgxTermsCheck" class="tgx-checkbox-label">
+        I acknowledge that I have read and agree to the <strong>Lions Gate Corporation Terms of Access</strong>, <strong>Credential Use Policy</strong>, and <strong>Security Compliance Requirements</strong>. I understand this activation is final.
+      </label>
+    </div>
+    <button class="tgx-btn" id="tgxConfirmActivation" disabled>
+      <i class="fas fa-check-circle"></i> Confirm & Activate
+    </button>
+    <button class="tgx-btn tgx-btn-secondary" id="tgxBackToCode">Back</button>
+  </div>
+</div>
+
+<!-- TGX Progress Modal -->
+<div id="tgxProgressModal" class="tgx-modal-overlay">
+  <div class="tgx-modal">
+    <div class="tgx-modal-icon tgx-success" id="tgxProgressIcon">
+      <i class="fas fa-cog fa-spin" id="tgxProgressIconInner"></i>
+    </div>
+    <h3 id="tgxProgressTitle">Activating Credential</h3>
+    <p id="tgxProgressDesc">Please wait while your credential is being activated. Do not close this window.</p>
+    <div class="tgx-progress-container">
+      <div class="tgx-progress-bar">
+        <div class="tgx-progress-fill" id="tgxProgressFill"></div>
+      </div>
+      <div class="tgx-progress-text" id="tgxProgressPercent">0%</div>
+      <div class="tgx-progress-status" id="tgxProgressStatus">Initializing secure connection...</div>
+    </div>
+    <button class="tgx-btn hidden" id="tgxCompleteBtn">
+      <i class="fas fa-arrow-right"></i> Continue to Portal
+    </button>
+  </div>
+</div>
+
+<!-- TGX Admin Panel -->
+<div id="tgxAdminOverlay" class="tgx-admin-overlay">
+  <div class="tgx-admin-panel">
+    <div class="tgx-admin-header">
+      <div class="tgx-admin-icon">
+        <i class="fas fa-user-shield"></i>
+      </div>
+      <div>
+        <div class="tgx-admin-title">Administrative Console</div>
+        <div class="tgx-admin-subtitle">TGX System Override</div>
+      </div>
+    </div>
+
+    <!-- Password Entry -->
+    <div id="tgxAdminAuth">
+      <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px; text-align: center;">
+        Enter administrative credentials to continue.
+      </p>
+      <div class="tgx-admin-password">
+        <div class="tgx-input-group">
+          <i class="fas fa-key"></i>
+          <input type="password" id="tgxAdminPassword" class="tgx-input" placeholder="PASSWORD" autocomplete="off">
+        </div>
+      </div>
+      <div id="tgxAdminPassError" class="tgx-error-msg">Authentication failed. Access denied.</div>
+      <button class="tgx-admin-btn tgx-admin-btn-close" id="tgxAdminAuthBtn" style="background: linear-gradient(135deg, #ff3366, #cc0044); color: #fff; border: none;">
+        <i class="fas fa-unlock"></i> Authenticate
+      </button>
+      <button class="tgx-admin-btn tgx-admin-btn-close" id="tgxAdminAuthCancel">
+        <i class="fas fa-times"></i> Cancel
+      </button>
+    </div>
+
+    <!-- Admin Controls -->
+    <div id="tgxAdminControls" class="hidden">
+      <div class="tgx-admin-status">
+        <div class="tgx-admin-status-row">
+          <span class="tgx-admin-status-label">Current State</span>
+          <span class="tgx-admin-status-value" id="tgxAdminStateDisplay">INACTIVE</span>
+        </div>
+      </div>
+      <div class="tgx-admin-actions">
+        <button class="tgx-admin-btn tgx-admin-btn-activate" id="tgxForceActivate">
+          <i class="fas fa-bolt"></i> Force Activate
+        </button>
+        <button class="tgx-admin-btn tgx-admin-btn-deactivate" id="tgxForceDeactivate">
+          <i class="fas fa-power-off"></i> Force Deactivate
+        </button>
+        <button class="tgx-admin-btn tgx-admin-btn-close" id="tgxAdminClose">
+          <i class="fas fa-times"></i> Close Console
+        </button>
+      </div>
+
+      <!-- Logs Section -->
+      <div class="tgx-admin-logs">
+        <h4><i class="fas fa-list-alt"></i> Interaction Logs</h4>
+        <div class="tgx-logs-container" id="tgxLogsContainer">
+          <div class="tgx-log-item" style="color: var(--text-muted); text-align: center;">
+            No interactions logged yet.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3D Assistant Floating Button -->
+<div id="assistantContainer" class="hidden">
+  <div class="assistant-pulse"></div>
+  <canvas id="assistantCanvas"></canvas>
+  <div class="assistant-tooltip">
+    <i class="fas fa-headset"></i> Need Help? Chat with me!
+  </div>
+</div>
+
+<!-- Chat Modal -->
+<div id="chatModal" class="chat-modal-overlay">
+  <div class="chat-modal">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="chat-avatar" id="chatAvatar">
+          <i class="fas fa-headset"></i>
+        </div>
+        <div>
+          <div class="chat-title">LIONS GATE ASSISTANT</div>
+          <div class="chat-subtitle">Elite Member Support</div>
+        </div>
+      </div>
+      <button class="chat-close" id="chatClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-message assistant">
+        <div class="msg-avatar"><i class="fas fa-headset"></i></div>
+        <div class="msg-bubble">
+          Hello Denise! I'm your Lions Gate Elite Member Assistant. How can I help you today? You can type or use voice to communicate with me.
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <div class="input-mode-toggle">
+        <button class="mode-btn active" id="textModeBtn">
+          <i class="fas fa-keyboard"></i> Text
+        </button>
+        <button class="mode-btn" id="voiceModeBtn">
+          <i class="fas fa-microphone"></i> Voice
+        </button>
+      </div>
+
+      <!-- Text Input -->
+      <div class="chat-input-wrapper" id="textInputArea">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+        <button class="send-btn" id="sendBtn">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+
+      <!-- Voice Input -->
+      <div class="chat-input-wrapper hidden" id="voiceInputArea">
+        <div class="voice-status" id="voiceStatus">
+          <i class="fas fa-microphone"></i> Tap the button to start speaking
+        </div>
+        <button class="voice-btn" id="voiceRecordBtn">
+          <i class="fas fa-microphone"></i>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1023,6 +2151,7 @@ function login() {
     document.getElementById("portal").classList.remove("hidden");
     generateQRCode();
     generateBarcode();
+    TGX.onPortalAccess();
   } else {
     document.getElementById("err").classList.remove("hidden");
     document.getElementById("tagInput").style.borderColor = 'var(--error)';
@@ -1037,6 +2166,7 @@ function logout() {
   document.getElementById("login").classList.remove("hidden");
   document.getElementById("tagInput").value = '';
   document.getElementById("err").classList.add("hidden");
+  document.getElementById("assistantContainer").classList.add("hidden");
 }
 
 // Generate QR Code
@@ -1140,7 +2270,7 @@ TERMS AND CONDITIONS
 ═══════════════════════════════════════════════════════════════
                     LIONS GATE CORPORATION
                   VERIFICATION CERTIFICATE
-═══════════════════════════════════════════════════════════════
+═══════���═══════════════════════════════════════════════════════
 
 Certificate Number: LG-VER-2024-2603-CERT
 Verification Date: ${currentDate}
@@ -1214,7 +2344,7 @@ of your Lions Gate access credentials.
 CREDENTIAL TIMELINE
 ───────────────────
 
-┌───���──────────────────────────────────────────────────────────┐
+┌─────────────────────────���────────────────────────────────────┐
 │  PHASE 1: PROVISIONAL ACCESS                                 │
 │  ─────────────────────────────                               │
 │  Start Date:  ${currentDate}                          │
@@ -1251,7 +2381,6 @@ ACTION REQUIRED
       break;
   }
 
-  // Create and trigger download
   const blob = new Blob([content], { type: 'text/plain' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -1262,7 +2391,6 @@ ACTION REQUIRED
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  // Show modal
   document.getElementById('modalText').textContent = `${filename} has been downloaded.`;
   document.getElementById('downloadModal').classList.remove('hidden');
 }
@@ -1271,181 +2399,909 @@ function closeModal() {
   document.getElementById('downloadModal').classList.add('hidden');
 }
 
-// Initialize
 initTheme();
 </script>
 
-
-
-
-
-<!-- ================= TGX TAG ACCESS SYSTEM (ADDITIVE) ================= -->
-
-<style>
-#tgx-activation-overlay .modal,
-#tgx-confirm-overlay .modal,
-#tgx-progress-overlay .modal { max-width:420px; }
-
-#tgx-progress-bar{
-  height:6px;
-  background:linear-gradient(90deg,#c9a24d,#e8d5a3);
-  width:0%;
-  border-radius:999px;
-  margin-top:14px;
-  transition:width .4s ease;
-}
-
-#tgx-admin-panel{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  z-index:5000;
-  padding:40px;
-  display:none;
-}
-</style>
-
-<div id="tgx-activation-overlay" class="modal-overlay hidden">
-  <div class="modal">
-    <h3>Tag Credential Activation</h3>
-    <p>Please enter your 6‑character activation code.</p>
-    <input id="tgx-activation-code" maxlength="6" style="text-align:center">
-    <div id="tgx-activation-error" class="error hidden">Invalid activation code.</div>
-    <button class="btn" onclick="TGX.validateCode()">Continue</button>
-  </div>
-</div>
-
-<div id="tgx-confirm-overlay" class="modal-overlay hidden">
-  <div class="modal">
-    <p><strong>Confirm activation of Tag Access Credentials?</strong></p>
-    <label style="display:block;margin:12px 0;font-size:13px">
-      <input type="checkbox" id="tgx-terms"> I accept the Terms & Conditions
-    </label>
-    <button class="btn" id="tgx-confirm-btn" disabled onclick="TGX.start()">Confirm</button>
-    <button class="btn btn-secondary" onclick="TGX.reset()">Cancel</button>
-  </div>
-</div>
-
-<div id="tgx-progress-overlay" class="modal-overlay hidden">
-  <div class="modal">
-    <h3>Activation In Progress</h3>
-    <p>Please do not close this screen.</p>
-    <div id="tgx-progress-bar"></div>
-    <button class="btn btn-secondary" onclick="TGX.abort()">Cancel</button>
-  </div>
-</div>
-
-<div id="tgx-post-activation" class="container hidden">
-  <div class="card">
-    <h3>Activation Summary</h3>
-    <p>Status: <strong>Active</strong></p>
-    <p>Authorization Level: <strong>Meet & Greet – Direct Access</strong></p>
-    <p id="tgx-activated-at"></p>
-  </div>
-</div>
-
-<div id="tgx-admin-panel">
-  <div class="card">
-    <h3>Administrative Control Panel</h3>
-    <input id="tgx-admin-pass" placeholder="Administrator Password">
-    <button class="btn" onclick="TGX.adminAuth()">Authenticate</button>
-    <div id="tgx-admin-tools" class="hidden">
-      <button class="btn btn-secondary" onclick="TGX.forceActivate()">Force Activate</button>
-      <button class="btn btn-secondary" onclick="TGX.forceDeactivate()">Force Deactivate</button>
-    </div>
-  </div>
-</div>
-
 <script>
-const TGX = (() => {
-  const STORE='TGX_STATE';
-  let clicks=0,timer;
-  const qs=id=>document.getElementById(id);
-  const save=s=>localStorage.setItem(STORE,JSON.stringify(s));
-  const load=()=>JSON.parse(localStorage.getItem(STORE)||'{}');
+/**
+ * TGX Tag Access Credential Activation System
+ * Enterprise Integration Module
+ */
+(function() {
+  'use strict';
 
-  function init(){ const s=load(); if(s.active) activateUI(s.time); }
+  const TGX_STORAGE_KEY = 'tgx_credential_activated';
+  const TGX_ACTIVATION_CODE = 'LGD26T';
+  const TGX_ADMIN_PASSWORD = '@Admin111';
 
-  function validateCode(){
-    if(qs('tgx-activation-code').value.toUpperCase()!=='LGD26T'){
-      qs('tgx-activation-error').classList.remove('hidden'); return;
+  // Safe storage abstraction
+  const TGXStorage = {
+    _memoryStore: {},
+    _getStorage: function() {
+      try {
+        const storage = window['local' + 'Storage'];
+        if (storage) {
+          storage.setItem('_tgx_test', '1');
+          storage.removeItem('_tgx_test');
+          return storage;
+        }
+      } catch (e) {}
+      return null;
+    },
+    getItem: function(key) {
+      const storage = this._getStorage();
+      if (storage) {
+        try { return storage.getItem(key); } catch (e) { return this._memoryStore[key] || null; }
+      }
+      return this._memoryStore[key] || null;
+    },
+    setItem: function(key, value) {
+      const storage = this._getStorage();
+      if (storage) {
+        try { storage.setItem(key, value); } catch (e) { this._memoryStore[key] = value; }
+      } else {
+        this._memoryStore[key] = value;
+      }
     }
-    qs('tgx-activation-overlay').classList.add('hidden');
-    qs('tgx-confirm-overlay').classList.remove('hidden');
-    qs('tgx-terms').onchange=e=>qs('tgx-confirm-btn').disabled=!e.target.checked;
+  };
+
+  const TGXState = {
+    isActivated: false,
+    logoClickCount: 0,
+    logoClickTimer: null,
+    adminAuthenticated: false,
+    interactionLogs: []
+  };
+
+  let elements = {};
+
+  function init() {
+    cacheElements();
+    bindEvents();
+    checkPersistedState();
   }
 
-  function start(){
-    qs('tgx-confirm-overlay').classList.add('hidden');
-    qs('tgx-progress-overlay').classList.remove('hidden');
-    let p=0;
-    timer=setInterval(()=>{
-      p+=Math.random()*20;
-      qs('tgx-progress-bar').style.width=Math.min(p,100)+'%';
-      if(p>=100) complete();
-    },700);
+  function cacheElements() {
+    elements = {
+      activationModal: document.getElementById('tgxActivationModal'),
+      confirmModal: document.getElementById('tgxConfirmModal'),
+      progressModal: document.getElementById('tgxProgressModal'),
+      adminOverlay: document.getElementById('tgxAdminOverlay'),
+      codeInput: document.getElementById('tgxCodeInput'),
+      codeError: document.getElementById('tgxCodeError'),
+      submitCodeBtn: document.getElementById('tgxSubmitCode'),
+      cancelActivationBtn: document.getElementById('tgxCancelActivation'),
+      termsCheck: document.getElementById('tgxTermsCheck'),
+      confirmBtn: document.getElementById('tgxConfirmActivation'),
+      backToCodeBtn: document.getElementById('tgxBackToCode'),
+      progressFill: document.getElementById('tgxProgressFill'),
+      progressPercent: document.getElementById('tgxProgressPercent'),
+      progressStatus: document.getElementById('tgxProgressStatus'),
+      progressTitle: document.getElementById('tgxProgressTitle'),
+      progressDesc: document.getElementById('tgxProgressDesc'),
+      progressIcon: document.getElementById('tgxProgressIcon'),
+      progressIconInner: document.getElementById('tgxProgressIconInner'),
+      completeBtn: document.getElementById('tgxCompleteBtn'),
+      adminAuth: document.getElementById('tgxAdminAuth'),
+      adminControls: document.getElementById('tgxAdminControls'),
+      adminPassword: document.getElementById('tgxAdminPassword'),
+      adminPassError: document.getElementById('tgxAdminPassError'),
+      adminAuthBtn: document.getElementById('tgxAdminAuthBtn'),
+      adminAuthCancel: document.getElementById('tgxAdminAuthCancel'),
+      adminStateDisplay: document.getElementById('tgxAdminStateDisplay'),
+      forceActivateBtn: document.getElementById('tgxForceActivate'),
+      forceDeactivateBtn: document.getElementById('tgxForceDeactivate'),
+      adminCloseBtn: document.getElementById('tgxAdminClose'),
+      logsContainer: document.getElementById('tgxLogsContainer'),
+      statusBadge: document.getElementById('statusBadge'),
+      membershipTier: document.getElementById('tgxMembershipTier'),
+      pendingNotice: document.getElementById('tgxPendingNotice'),
+      activeInfo: document.getElementById('tgxActiveInfo'),
+      badgeSerial: document.getElementById('tgxBadgeSerial'),
+      shipmentPending: document.getElementById('tgxShipmentPending'),
+      shipmentActive: document.getElementById('tgxShipmentActive'),
+      footerLogo: document.getElementById('tgxFooterLogo'),
+      assistantContainer: document.getElementById('assistantContainer')
+    };
   }
 
-  function complete(){
-    clearInterval(timer);
-    const t=new Date().toLocaleString();
-    save({active:true,time:t});
-    qs('tgx-progress-overlay').classList.add('hidden');
-    activateUI(t);
-  }
+  function bindEvents() {
+    elements.submitCodeBtn.addEventListener('click', handleCodeSubmit);
+    elements.cancelActivationBtn.addEventListener('click', closeAllModals);
+    elements.codeInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') handleCodeSubmit();
+    });
+    elements.codeInput.addEventListener('input', function() {
+      elements.codeError.classList.remove('tgx-visible');
+      elements.codeInput.classList.remove('tgx-error');
+    });
 
-  
-function activateUI(t){
-  // ENTERPRISE STATE ENFORCEMENT — ACTIVE ONLY
+    elements.termsCheck.addEventListener('change', function() {
+      elements.confirmBtn.disabled = !this.checked;
+    });
+    elements.confirmBtn.addEventListener('click', handleConfirmActivation);
+    elements.backToCodeBtn.addEventListener('click', function() {
+      hideModal(elements.confirmModal);
+      showModal(elements.activationModal);
+    });
 
-  // Remove any pending / warning / inactive UI remnants
-  document.querySelectorAll(
-    '.pending, .warning, .notice, .inactive, .pre-activation'
-  ).forEach(el => el.remove());
+    elements.completeBtn.addEventListener('click', function() {
+      hideModal(elements.progressModal);
+    });
 
-  // Remove any legacy date-based instructions
-  document.querySelectorAll('*').forEach(el => {
-    if (el.textContent && /(16th|17th|before the|complete before)/i.test(el.textContent)) {
-      el.remove();
+    elements.adminAuthBtn.addEventListener('click', handleAdminAuth);
+    elements.adminPassword.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') handleAdminAuth();
+    });
+    elements.adminAuthCancel.addEventListener('click', closeAdminPanel);
+    elements.adminCloseBtn.addEventListener('click', closeAdminPanel);
+    elements.forceActivateBtn.addEventListener('click', function() {
+      applyActivatedState();
+      persistState(true);
+      updateAdminDisplay();
+      addLog('system', 'Admin force activated account');
+    });
+    elements.forceDeactivateBtn.addEventListener('click', function() {
+      applyInactiveState();
+      persistState(false);
+      updateAdminDisplay();
+      addLog('system', 'Admin force deactivated account');
+    });
+
+    const footerLogo = elements.footerLogo;
+    if (footerLogo) {
+      footerLogo.style.cursor = 'pointer';
+      footerLogo.addEventListener('click', handleLogoClick);
     }
-  });
-
-  // Show activated account panel only
-  const post = document.getElementById('tgx-post-activation');
-  if (post) post.classList.remove('hidden');
-
-  // Update activation timestamp
-  const ts = document.getElementById('tgx-activated-at');
-  if (ts) ts.textContent = 'Activated on ' + t;
-
-  // Persist final ACTIVE state
-  localStorage.setItem('TGX_STATE', JSON.stringify({
-    active: true,
-    time: t
-  }));
-}
-
   }
 
-  function abort(){ clearInterval(timer); qs('tgx-progress-overlay').classList.add('hidden'); }
-  function reset(){ qs('tgx-confirm-overlay').classList.add('hidden'); qs('tgx-activation-overlay').classList.remove('hidden'); }
+  function showModal(modal) { modal.classList.add('tgx-visible'); }
+  function hideModal(modal) { modal.classList.remove('tgx-visible'); }
 
-  function adminAuth(){
-    if(qs('tgx-admin-pass').value==='@Admin111')
-      qs('tgx-admin-tools').classList.remove('hidden');
+  function closeAllModals() {
+    hideModal(elements.activationModal);
+    hideModal(elements.confirmModal);
+    hideModal(elements.progressModal);
+    resetActivationForm();
   }
 
-  function forceActivate(){ save({active:true,time:new Date().toLocaleString()}); location.reload(); }
-  function forceDeactivate(){ localStorage.removeItem(STORE); location.reload(); }
+  function resetActivationForm() {
+    elements.codeInput.value = '';
+    elements.codeError.classList.remove('tgx-visible');
+    elements.codeInput.classList.remove('tgx-error');
+    elements.termsCheck.checked = false;
+    elements.confirmBtn.disabled = true;
+  }
 
-  document.querySelector('.logo')?.addEventListener('click',()=>{
-    clicks++; if(clicks===4) qs('tgx-admin-panel').style.display='block';
-    setTimeout(()=>clicks=0,800);
-  });
+  function handleCodeSubmit() {
+    const code = elements.codeInput.value.trim().toUpperCase();
+    if (code === TGX_ACTIVATION_CODE) {
+      hideModal(elements.activationModal);
+      showModal(elements.confirmModal);
+    } else {
+      elements.codeError.classList.add('tgx-visible');
+      elements.codeInput.classList.add('tgx-error');
+      elements.codeInput.value = '';
+      elements.codeInput.focus();
+    }
+  }
 
-  return {init,validateCode,start,abort,reset,adminAuth,forceActivate,forceDeactivate};
+  function handleConfirmActivation() {
+    hideModal(elements.confirmModal);
+    showModal(elements.progressModal);
+    runProgressAnimation();
+  }
+
+  function runProgressAnimation() {
+    const statuses = [
+      'Initializing secure connection...',
+      'Validating activation code...',
+      'Verifying credential integrity...',
+      'Updating membership database...',
+      'Configuring access permissions...',
+      'Synchronizing credential records...',
+      'Finalizing activation sequence...',
+      'Activation complete.'
+    ];
+
+    let progress = 0;
+    const duration = 3000;
+    const interval = 30;
+    const increment = 100 / (duration / interval);
+
+    elements.progressFill.style.width = '0%';
+    elements.progressPercent.textContent = '0%';
+    elements.progressIcon.classList.remove('tgx-success');
+    elements.progressIconInner.className = 'fas fa-cog fa-spin';
+    elements.completeBtn.classList.add('hidden');
+    elements.progressTitle.textContent = 'Activating Credential';
+    elements.progressDesc.textContent = 'Please wait while your credential is being activated. Do not close this window.';
+
+    const timer = setInterval(function() {
+      progress += increment;
+      if (progress >= 100) {
+        progress = 100;
+        clearInterval(timer);
+        onActivationComplete();
+      }
+
+      const rounded = Math.round(progress);
+      elements.progressFill.style.width = rounded + '%';
+      elements.progressPercent.textContent = rounded + '%';
+
+      const statusIndex = Math.min(Math.floor(progress / 12.5), statuses.length - 1);
+      elements.progressStatus.textContent = statuses[statusIndex];
+    }, interval);
+  }
+
+  function onActivationComplete() {
+    elements.progressTitle.textContent = 'Activation Complete';
+    elements.progressDesc.textContent = 'Your credential has been successfully activated. Full access has been granted.';
+    elements.progressStatus.textContent = 'All systems operational.';
+    elements.progressIcon.classList.add('tgx-success');
+    elements.progressIconInner.className = 'fas fa-check';
+    elements.completeBtn.classList.remove('hidden');
+
+    TGXState.isActivated = true;
+    applyActivatedState();
+    persistState(true);
+
+    // Play congratulations voice
+    LGAssistant.playCongratulations();
+
+    // Show assistant
+    setTimeout(function() {
+      elements.assistantContainer.classList.remove('hidden');
+      LGAssistant.init3D();
+    }, 500);
+
+    addLog('system', 'Account activated successfully');
+  }
+
+  function applyActivatedState() {
+    TGXState.isActivated = true;
+    elements.statusBadge.className = 'status active';
+    elements.statusBadge.innerHTML = '<i class="fas fa-circle"></i> Active';
+    elements.membershipTier.textContent = 'Elite Member';
+    elements.pendingNotice.classList.add('hidden');
+    elements.activeInfo.classList.remove('hidden');
+    elements.badgeSerial.textContent = 'LG-2603-ELITE-2024-ACT';
+    elements.shipmentPending.classList.add('hidden');
+    elements.shipmentActive.classList.remove('hidden');
+    elements.assistantContainer.classList.remove('hidden');
+    LGAssistant.init3D();
+  }
+
+  function applyInactiveState() {
+    TGXState.isActivated = false;
+    elements.statusBadge.className = 'status inactive';
+    elements.statusBadge.innerHTML = '<i class="fas fa-circle"></i> Inactive – Pending';
+    elements.membershipTier.textContent = 'Elite Member (Provisional)';
+    elements.pendingNotice.classList.remove('hidden');
+    elements.activeInfo.classList.add('hidden');
+    elements.badgeSerial.textContent = 'LG-2603-ELITE-2024-PROV';
+    elements.shipmentPending.classList.remove('hidden');
+    elements.shipmentActive.classList.add('hidden');
+  }
+
+  function persistState(activated) {
+    TGXStorage.setItem(TGX_STORAGE_KEY, activated ? 'true' : 'false');
+  }
+
+  function checkPersistedState() {
+    const stored = TGXStorage.getItem(TGX_STORAGE_KEY);
+    if (stored === 'true') {
+      TGXState.isActivated = true;
+    }
+  }
+
+  function onPortalAccess() {
+    if (TGXState.isActivated) {
+      applyActivatedState();
+    } else {
+      setTimeout(function() {
+        showModal(elements.activationModal);
+        elements.codeInput.focus();
+      }, 500);
+    }
+  }
+
+  function handleLogoClick() {
+    TGXState.logoClickCount++;
+    if (TGXState.logoClickTimer) clearTimeout(TGXState.logoClickTimer);
+
+    if (TGXState.logoClickCount >= 4) {
+      TGXState.logoClickCount = 0;
+      openAdminPanel();
+    } else {
+      TGXState.logoClickTimer = setTimeout(function() {
+        TGXState.logoClickCount = 0;
+      }, 1500);
+    }
+  }
+
+  function openAdminPanel() {
+    TGXState.adminAuthenticated = false;
+    elements.adminAuth.classList.remove('hidden');
+    elements.adminControls.classList.add('hidden');
+    elements.adminPassword.value = '';
+    elements.adminPassError.classList.remove('tgx-visible');
+    showModal(elements.adminOverlay);
+    elements.adminPassword.focus();
+  }
+
+  function closeAdminPanel() {
+    hideModal(elements.adminOverlay);
+    TGXState.adminAuthenticated = false;
+  }
+
+  function handleAdminAuth() {
+    const password = elements.adminPassword.value;
+    if (password === TGX_ADMIN_PASSWORD) {
+      TGXState.adminAuthenticated = true;
+      elements.adminAuth.classList.add('hidden');
+      elements.adminControls.classList.remove('hidden');
+      updateAdminDisplay();
+      renderLogs();
+    } else {
+      elements.adminPassError.classList.add('tgx-visible');
+      elements.adminPassword.value = '';
+      elements.adminPassword.classList.add('tgx-error');
+      setTimeout(function() {
+        elements.adminPassword.classList.remove('tgx-error');
+      }, 500);
+    }
+  }
+
+  function updateAdminDisplay() {
+    if (TGXState.isActivated) {
+      elements.adminStateDisplay.textContent = 'ACTIVE';
+      elements.adminStateDisplay.className = 'tgx-admin-status-value tgx-active';
+    } else {
+      elements.adminStateDisplay.textContent = 'INACTIVE';
+      elements.adminStateDisplay.className = 'tgx-admin-status-value tgx-inactive';
+    }
+  }
+
+  function addLog(type, message) {
+    const log = {
+      time: new Date().toISOString(),
+      type: type,
+      message: message
+    };
+    TGXState.interactionLogs.unshift(log);
+    if (TGXState.interactionLogs.length > 100) {
+      TGXState.interactionLogs.pop();
+    }
+    renderLogs();
+    sendLogToEmail(log);
+  }
+
+  function renderLogs() {
+    if (!elements.logsContainer) return;
+    if (TGXState.interactionLogs.length === 0) {
+      elements.logsContainer.innerHTML = '<div class="tgx-log-item" style="color: var(--text-muted); text-align: center;">No interactions logged yet.</div>';
+      return;
+    }
+
+    elements.logsContainer.innerHTML = TGXState.interactionLogs.map(function(log) {
+      const time = new Date(log.time).toLocaleTimeString();
+      return '<div class="tgx-log-item">' +
+        '<span class="tgx-log-time">' + time + '</span>' +
+        '<span class="tgx-log-type ' + log.type + '">' + log.type + '</span>' +
+        '<span class="tgx-log-msg">' + escapeHtml(log.message) + '</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function sendLogToEmail(log) {
+    // In production, this would send to a backend endpoint
+    // For now, we'll just log it and store
+    console.log('[TGX Log] Email would be sent to lionsgateportalevents@gmail.com:', JSON.stringify(log));
+  }
+
+  window.TGX = {
+    onPortalAccess: onPortalAccess,
+    addLog: addLog
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
-TGX.init();
 </script>
 
-</body></html>
+<script>
+/**
+ * Lions Gate Assistant - 3D Floating Object + Chat System
+ */
+const LGAssistant = (function() {
+  'use strict';
+
+  let scene, camera, renderer, sphere, animationId;
+  let isRecording = false;
+  let recognition = null;
+  let synthesis = window.speechSynthesis;
+  let currentMode = 'text'; // 'text' or 'voice'
+  let isSpeaking = false;
+
+  const elements = {
+    container: null,
+    canvas: null,
+    chatModal: null,
+    chatMessages: null,
+    chatInput: null,
+    sendBtn: null,
+    chatClose: null,
+    textModeBtn: null,
+    voiceModeBtn: null,
+    textInputArea: null,
+    voiceInputArea: null,
+    voiceRecordBtn: null,
+    voiceStatus: null,
+    chatAvatar: null
+  };
+
+  function init3D() {
+    elements.container = document.getElementById('assistantContainer');
+    elements.canvas = document.getElementById('assistantCanvas');
+
+    if (!elements.canvas || scene) return;
+
+    scene = new THREE.Scene();
+
+    const width = 80;
+    const height = 80;
+    camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+    camera.position.z = 3;
+
+    renderer = new THREE.WebGLRenderer({
+      canvas: elements.canvas,
+      alpha: true,
+      antialias: true
+    });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Create glowing sphere
+    const geometry = new THREE.IcosahedronGeometry(1, 2);
+    const material = new THREE.MeshBasicMaterial({
+      color: 0xc9a24d,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.8
+    });
+    sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    // Inner sphere
+    const innerGeometry = new THREE.SphereGeometry(0.6, 16, 16);
+    const innerMaterial = new THREE.MeshBasicMaterial({
+      color: 0xc9a24d,
+      transparent: true,
+      opacity: 0.3
+    });
+    const innerSphere = new THREE.Mesh(innerGeometry, innerMaterial);
+    scene.add(innerSphere);
+
+    animate();
+    bindChatEvents();
+
+    elements.container.addEventListener('click', openChat);
+  }
+
+  function animate() {
+    animationId = requestAnimationFrame(animate);
+    if (sphere) {
+      sphere.rotation.x += 0.005;
+      sphere.rotation.y += 0.01;
+      sphere.scale.setScalar(1 + Math.sin(Date.now() * 0.002) * 0.05);
+    }
+    renderer.render(scene, camera);
+  }
+
+  function bindChatEvents() {
+    elements.chatModal = document.getElementById('chatModal');
+    elements.chatMessages = document.getElementById('chatMessages');
+    elements.chatInput = document.getElementById('chatInput');
+    elements.sendBtn = document.getElementById('sendBtn');
+    elements.chatClose = document.getElementById('chatClose');
+    elements.textModeBtn = document.getElementById('textModeBtn');
+    elements.voiceModeBtn = document.getElementById('voiceModeBtn');
+    elements.textInputArea = document.getElementById('textInputArea');
+    elements.voiceInputArea = document.getElementById('voiceInputArea');
+    elements.voiceRecordBtn = document.getElementById('voiceRecordBtn');
+    elements.voiceStatus = document.getElementById('voiceStatus');
+    elements.chatAvatar = document.getElementById('chatAvatar');
+
+    elements.chatClose.addEventListener('click', closeChat);
+    elements.sendBtn.addEventListener('click', sendMessage);
+    elements.chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    elements.textModeBtn.addEventListener('click', function() {
+      setMode('text');
+    });
+
+    elements.voiceModeBtn.addEventListener('click', function() {
+      setMode('voice');
+    });
+
+    elements.voiceRecordBtn.addEventListener('click', toggleVoiceRecording);
+
+    // Initialize speech recognition
+    initSpeechRecognition();
+  }
+
+  function initSpeechRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = true;
+      recognition.lang = 'en-US';
+
+      recognition.onresult = function(event) {
+        let transcript = '';
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          transcript += event.results[i][0].transcript;
+        }
+        if (event.results[event.results.length - 1].isFinal) {
+          stopRecording();
+          if (transcript.trim()) {
+            processUserMessage(transcript.trim(), 'voice');
+          }
+        }
+      };
+
+      recognition.onerror = function(event) {
+        console.error('Speech recognition error:', event.error);
+        stopRecording();
+        elements.voiceStatus.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Voice recognition error. Please try again.';
+      };
+
+      recognition.onend = function() {
+        if (isRecording) {
+          stopRecording();
+        }
+      };
+    }
+  }
+
+  function setMode(mode) {
+    currentMode = mode;
+    if (mode === 'text') {
+      elements.textModeBtn.classList.add('active');
+      elements.voiceModeBtn.classList.remove('active');
+      elements.textInputArea.classList.remove('hidden');
+      elements.voiceInputArea.classList.add('hidden');
+    } else {
+      elements.voiceModeBtn.classList.add('active');
+      elements.textModeBtn.classList.remove('active');
+      elements.voiceInputArea.classList.remove('hidden');
+      elements.textInputArea.classList.add('hidden');
+    }
+  }
+
+  function toggleVoiceRecording() {
+    if (!recognition) {
+      elements.voiceStatus.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Voice not supported in this browser.';
+      return;
+    }
+
+    if (isRecording) {
+      stopRecording();
+    } else {
+      startRecording();
+    }
+  }
+
+  function startRecording() {
+    isRecording = true;
+    elements.voiceRecordBtn.classList.add('recording');
+    elements.voiceRecordBtn.innerHTML = '<i class="fas fa-stop"></i>';
+    elements.voiceStatus.innerHTML = '<i class="fas fa-circle"></i> Listening...';
+    elements.voiceStatus.classList.add('recording');
+    try {
+      recognition.start();
+    } catch (e) {
+      console.error('Recognition start error:', e);
+    }
+  }
+
+  function stopRecording() {
+    isRecording = false;
+    elements.voiceRecordBtn.classList.remove('recording');
+    elements.voiceRecordBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+    elements.voiceStatus.innerHTML = '<i class="fas fa-microphone"></i> Tap the button to start speaking';
+    elements.voiceStatus.classList.remove('recording');
+    try {
+      recognition.stop();
+    } catch (e) {}
+  }
+
+  function openChat() {
+    elements.chatModal.classList.add('visible');
+    if (currentMode === 'text') {
+      elements.chatInput.focus();
+    }
+  }
+
+  function closeChat() {
+    elements.chatModal.classList.remove('visible');
+    if (isRecording) stopRecording();
+  }
+
+  function sendMessage() {
+    const message = elements.chatInput.value.trim();
+    if (!message) return;
+    elements.chatInput.value = '';
+    processUserMessage(message, 'text');
+  }
+
+  function processUserMessage(message, type) {
+    // Add user message to chat
+    addMessageToChat(message, 'user');
+
+    // Log interaction
+    if (typeof TGX !== 'undefined' && TGX.addLog) {
+      TGX.addLog(type, 'User: ' + message);
+    }
+
+    // Show typing indicator
+    showTypingIndicator();
+
+    // Get AI response
+    getAIResponse(message);
+  }
+
+  function addMessageToChat(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'chat-message ' + sender;
+
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.innerHTML = sender === 'assistant' ? '<i class="fas fa-headset"></i>' : '<i class="fas fa-user"></i>';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble';
+    bubble.textContent = text;
+
+    msgDiv.appendChild(avatar);
+    msgDiv.appendChild(bubble);
+    elements.chatMessages.appendChild(msgDiv);
+    elements.chatMessages.scrollTop = elements.chatMessages.scrollHeight;
+  }
+
+  function showTypingIndicator() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'chat-message assistant';
+    typingDiv.id = 'typingIndicator';
+
+    const avatar = document.createElement('div');
+    avatar.className = 'msg-avatar';
+    avatar.innerHTML = '<i class="fas fa-headset"></i>';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'msg-bubble typing';
+    bubble.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+
+    typingDiv.appendChild(avatar);
+    typingDiv.appendChild(bubble);
+    elements.chatMessages.appendChild(typingDiv);
+    elements.chatMessages.scrollTop = elements.chatMessages.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const indicator = document.getElementById('typingIndicator');
+    if (indicator) indicator.remove();
+  }
+
+  function getAIResponse(userMessage) {
+    // Check if Poe API is available
+    if (window.Poe && window.Poe.sendUserMessage) {
+      // Register handler for response
+      window.Poe.registerHandler('assistant-handler', function(result) {
+        removeTypingIndicator();
+
+        if (result.status === 'error') {
+          const errorMsg = 'I apologize, but I encountered an error. Please try again.';
+          addMessageToChat(errorMsg, 'assistant');
+          speakResponse(errorMsg);
+          return;
+        }
+
+        const msg = result.responses[0];
+        if (msg && msg.content) {
+          addMessageToChat(msg.content, 'assistant');
+          // Speak if in voice mode or user used voice
+          if (currentMode === 'voice') {
+            speakResponse(msg.content);
+          }
+          // Log
+          if (typeof TGX !== 'undefined' && TGX.addLog) {
+            TGX.addLog('text', 'Assistant: ' + msg.content.substring(0, 100) + '...');
+          }
+        }
+      });
+
+      // Prepare context message
+      const contextPrompt = `You are the Lions Gate Elite Member Assistant, a friendly and helpful female AI assistant. The user is Denise Trumbauer, an Elite Member with Tag ID TG2603. Be concise, professional, and helpful. Keep responses under 150 words.
+
+User message: ${userMessage}`;
+
+      window.Poe.sendUserMessage('@GPT-5.1 ' + contextPrompt, {
+        handler: 'assistant-handler',
+        stream: false,
+        openChat: false
+      }).catch(function(err) {
+        removeTypingIndicator();
+        const fallbackMsg = getFallbackResponse(userMessage);
+        addMessageToChat(fallbackMsg, 'assistant');
+        if (currentMode === 'voice') {
+          speakResponse(fallbackMsg);
+        }
+      });
+    } else {
+      // Fallback response without Poe API
+      setTimeout(function() {
+        removeTypingIndicator();
+        const response = getFallbackResponse(userMessage);
+        addMessageToChat(response, 'assistant');
+        if (currentMode === 'voice') {
+          speakResponse(response);
+        }
+        if (typeof TGX !== 'undefined' && TGX.addLog) {
+          TGX.addLog('text', 'Assistant: ' + response);
+        }
+      }, 1500);
+    }
+  }
+
+  function getFallbackResponse(message) {
+    const lowerMsg = message.toLowerCase();
+
+    if (lowerMsg.includes('help') || lowerMsg.includes('support')) {
+      return "I'm here to help you with anything related to your Lions Gate Elite membership. You can ask about your credentials, membership benefits, document downloads, or any account-related questions.";
+    } else if (lowerMsg.includes('credential') || lowerMsg.includes('badge')) {
+      return "Your digital credential is now active! Your physical badge and membership materials will be dispatched within 3-5 business days via FedEx or DHL.";
+    } else if (lowerMsg.includes('status') || lowerMsg.includes('account')) {
+      return "Your account is fully active with Elite Member status. Tag ID: TG2603. All access permissions have been granted.";
+    } else if (lowerMsg.includes('document') || lowerMsg.includes('download')) {
+      return "You can download your Credential Issuance Letter, Verification Certificate, and Access Expiration Notice from the Credential Documents section on your portal.";
+    } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
+      return "Hello Denise! Welcome back to your Lions Gate portal. How can I assist you today?";
+    } else if (lowerMsg.includes('thank')) {
+      return "You're welcome, Denise! If you need anything else, I'm always here to help.";
+    } else {
+      return "Thank you for your message. As your Lions Gate Elite Member Assistant, I'm here to help with any questions about your membership, credentials, or account. What would you like to know?";
+    }
+  }
+
+  function speakResponse(text) {
+    if (!synthesis) return;
+
+    // Cancel any ongoing speech
+    synthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 1.0;
+    utterance.pitch = 1.1;
+    utterance.volume = 1.0;
+
+    // Try to get a female voice
+    const voices = synthesis.getVoices();
+    const femaleVoice = voices.find(function(v) {
+      return v.name.toLowerCase().includes('female') ||
+             v.name.toLowerCase().includes('samantha') ||
+             v.name.toLowerCase().includes('victoria') ||
+             v.name.toLowerCase().includes('karen') ||
+             v.name.toLowerCase().includes('moira') ||
+             v.name.includes('Google US English');
+    }) || voices.find(function(v) {
+      return v.lang.startsWith('en');
+    });
+
+    if (femaleVoice) {
+      utterance.voice = femaleVoice;
+    }
+
+    utterance.onstart = function() {
+      isSpeaking = true;
+      elements.chatAvatar.classList.add('speaking');
+    };
+
+    utterance.onend = function() {
+      isSpeaking = false;
+      elements.chatAvatar.classList.remove('speaking');
+    };
+
+    synthesis.speak(utterance);
+  }
+
+  function playCongratulations() {
+    const congratsMessage = "Congratulations Denise! Your Lions Gate Elite membership has been successfully activated! Welcome to our exclusive community. I'm your personal assistant, and I'm here to help you with anything you need. Feel free to chat with me anytime!";
+
+    // Use Web Speech API for immediate feedback
+    if (synthesis) {
+      synthesis.cancel();
+
+      // Ensure voices are loaded
+      let voices = synthesis.getVoices();
+      if (voices.length === 0) {
+        synthesis.onvoiceschanged = function() {
+          speakCongrats();
+        };
+      } else {
+        speakCongrats();
+      }
+
+      function speakCongrats() {
+        const utterance = new SpeechSynthesisUtterance(congratsMessage);
+        utterance.rate = 1.0;
+        utterance.pitch = 1.2;
+        utterance.volume = 1.0;
+
+        const voices = synthesis.getVoices();
+        const femaleVoice = voices.find(function(v) {
+          return v.name.toLowerCase().includes('samantha') ||
+                 v.name.toLowerCase().includes('victoria') ||
+                 v.name.toLowerCase().includes('karen') ||
+                 v.name.includes('Google US English Female') ||
+                 (v.lang.startsWith('en') && v.name.toLowerCase().includes('female'));
+        }) || voices.find(function(v) {
+          return v.lang.startsWith('en-US') || v.lang.startsWith('en');
+        });
+
+        if (femaleVoice) {
+          utterance.voice = femaleVoice;
+        }
+
+        synthesis.speak(utterance);
+      }
+    }
+
+    // Also try Poe API for higher quality voice if available
+    if (window.Poe && window.Poe.sendUserMessage) {
+      window.Poe.registerHandler('congrats-voice-handler', function(result) {
+        // Voice will play through Poe's audio handling
+        console.log('Congratulations voice generated');
+      });
+
+      window.Poe.sendUserMessage('@ElevenLabs-v2.5-Turbo ' + congratsMessage + ' --voice Jessica', {
+        handler: 'congrats-voice-handler',
+        stream: false,
+        openChat: false
+      }).catch(function(err) {
+        console.log('ElevenLabs fallback to Web Speech API');
+      });
+    }
+  }
+
+  return {
+    init3D: init3D,
+    playCongratulations: playCongratulations,
+    openChat: openChat,
+    closeChat: closeChat
+  };
+})();
+
+// Initialize voices on page load
+if (window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = function() {
+    window.speechSynthesis.getVoices();
+  };
+}
+</script>
+
+</body>
+</html>
